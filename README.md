@@ -3,8 +3,8 @@
 
 Or more simply **_Daniele Maiorino!_** 
 
-## ⚠️ WARNING
-The program needs obligatorily either the parameter --file or --text to work while the other 2 are optional 
+## ⛔ WARNING
+_The program needs obligatorily either the parameter --file or --text to work while the other 2 are optional_
 
 ## ⭐ To test run the program from command line with these parameters:
 
