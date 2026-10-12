@@ -48,7 +48,7 @@ def interpret_brainfuck(code, brainfuckDebug):
     ip += 1
 
   i = 0
-  while i < 100:
+  while i < 600: # Showing only 600 hundred cells for IDE limit 
     brainfuckDebug.append(memory[i])
     i += 1
   return "".join(output)
