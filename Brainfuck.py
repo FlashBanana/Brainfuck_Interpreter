@@ -52,9 +52,7 @@ def interpret_brainfuck(code,brainfuckDebug):
 
 brainfuckDebug = []
 
-brainfuckCode =
-"""
-+++++++++++[>++++++<-]>++.
+brainfuckCode = """+++++++++++[>++++++<-]>++.
 >++++[>++++++++<-]->[>+++<-]>+.
 <++++++[>++<-]>+.
 -----.
@@ -69,8 +67,7 @@ brainfuckCode =
 +++.
 ---------.
 +++++.
-+.-[>+<--]>---------.
-"""
++.-[>+<--]>---------."""
 
 res = interpret_brainfuck(brainfuckCode,brainfuckDebug)
 print("Output:", res)
