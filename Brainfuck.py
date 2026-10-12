@@ -48,12 +48,12 @@ def interpret_brainfuck(code, brainfuckDebug):
     ip += 1
 
   i = 0
-  while i < 600: # Showing only 600 hundred cells for IDE limit 
+  while i < 600:
     brainfuckDebug.append(memory[i])
     i += 1
   return "".join(output)
 
-def createParser(parser):
+def create_parser(parser):
 
     # Creating mutually exclusive group: the user has to insert 0 --file 0 --text
     group = parser.add_mutually_exclusive_group(required=True)
@@ -79,7 +79,7 @@ def createParser(parser):
         help="Saving memory final dump in memory in the file 'finalDump.txt'",
     )
 
-def getcode(args):
+def get_code(args):
     if args.file:
         try:
             with open(args.file, "r", encoding="utf-8") as f:
@@ -91,7 +91,7 @@ def getcode(args):
         return args.text
     return ""
 
-def printDebug(args, brainfuck_debug):
+def print_debug(args, brainfuck_debug):
     # Show only when there is the arg -d or --debug | -sd --save--debug
     if args.debug:
         print("\nMemory final dump (Console):")
@@ -103,7 +103,7 @@ def printDebug(args, brainfuck_debug):
                 print()
     if args.save_debug:
         try:
-            with open("final_dump.txt", "w", encoding="utf-8") as dump_file:
+            with open("finalDump.txt", "w", encoding="utf-8") as dump_file:
                 dump_file.write("Memory final dump:\n")
                 i = 0
                 while i < len(brainfuck_debug):
@@ -111,19 +111,19 @@ def printDebug(args, brainfuck_debug):
                     i += 1
                     if i % 12 == 0:
                         dump_file.write("\n")
-            print("\n[Success] Successfully saved memory final dump in 'final_dump.txt'.")
+            print("\n[Success] Successfully saved memory final dump in 'finalDump.txt'.")
         except IOError:
-            print("\n[Error] Can't write in 'final_dump.txt'.")
+            print("\n[Error] Can't write in 'finalDump.txt'.")
 def main():
   # Configuring cmd argument parser
   parser = argparse.ArgumentParser(description="Brainfuck interpreter in python")
-  createParser(parser)
+  create_parser(parser)
 
   #Setting args from parser
   args = parser.parse_args()
 
   # Getting the code based on argument passed
-  code = getcode(args)
+  code = get_code(args)
 
   # Executing interpreter
   brainfuck_debug = []
@@ -132,7 +132,7 @@ def main():
   print("Output:", res)
 
   #Printing debug
-  printDebug(args, brainfuck_debug)
+  print_debug(args, brainfuck_debug)
 
 if __name__ == "__main__":
   main()
